@@ -7,11 +7,11 @@
 
 .App-header {
   margin-top: 15px;
-  background-color: rgba(0,0,0.2,0.5);
+  background-color:  #000052;
   height: 120px;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: pink;
+  color: white;
   width: 100%;
   margin-bottom: 20px;
 }
@@ -21,7 +21,7 @@
   font-family: 'fangsong';
   font-size: 65px ;
   position: relative;
-  top: 8px;
+  top: 20px;
   left: 20px
 }
 

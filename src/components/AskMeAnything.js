@@ -10,6 +10,9 @@ export default class AskMeAnything extends React.Component{
         return(
             <div>
                 Questions here
+                <form>
+                    <input></input>
+                </form>
             </div>
         )
     };
