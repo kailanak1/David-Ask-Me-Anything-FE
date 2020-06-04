@@ -37,3 +37,7 @@
 .App-link {
   color: #61dafb;
 }
+
+.container {
+  max-width: '100%';
+}
