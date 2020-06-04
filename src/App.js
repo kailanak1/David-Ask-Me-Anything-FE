@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 //components 
 import Navbar from './components/Navbar';
-import AskMeAnyting from './components/AskMeAnything'
+import AskMeAnything from './components/AskMeAnything';
+import About from './components/About';
 
 import './App.css';
 
@@ -20,10 +21,15 @@ export default class App extends React.Component{
             
           <Navbar />
           </header>
+
+          <Route 
+          path="/" 
+          component={About}/>
+
+          <Route exact path="/AskMeAnything" component={AskMeAnything}/>
+
         </Router>
       </div>
     )
   }
-}
-
-export default App;
+};

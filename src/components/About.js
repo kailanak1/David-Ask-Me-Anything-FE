@@ -2,16 +2,15 @@ import React from 'react';
 
 
 
+export default class About extends React.Component{
 
-export default class AskMeAnything extends React.Component{
 
 
     render(){
         return(
             <div>
-                Questions here
+            Hi. This is my About page. 
             </div>
         )
     };
-
 };

@@ -22,6 +22,6 @@ export default class Navbar extends React.Component {
                 >Ask Me Anything </NavLink>
             </div>
         )
-    }
+    };
 
-}
+};
