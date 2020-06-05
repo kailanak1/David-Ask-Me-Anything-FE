@@ -20,6 +20,12 @@ export default class Navbar extends React.Component {
                 exact
                 style={link}
                 >Ask Me Anything </NavLink>
+          
+             <NavLink
+                to="Login"
+                exact
+                style={link}
+                >Login </NavLink>
             </div>
         )
     };
