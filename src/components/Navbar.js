@@ -5,7 +5,9 @@ export default class Navbar extends React.Component {
 
     render(){
         const link = {
-            color: "white"
+            color: "white",
+            paddingTop: "25px", 
+            cursor: "pointer"
         }
         return(
             <div className="navbar">
