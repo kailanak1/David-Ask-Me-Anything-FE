@@ -1,8 +1,10 @@
+const QUESTION_INITIAL_STATE = []
 
-const questionReducer = (state, action) => {
+const questionReducer = (state = QUESTION_INITIAL_STATE, action) => {
     switch(action.type){
-        case 'ADD_QUESTION': 
-            return "something" 
+        case 'GET_QUESTIONS': 
+            console.log(action, state)
+         
         
         default:
             return state

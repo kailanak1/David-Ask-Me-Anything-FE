@@ -1,4 +1,4 @@
-const BACKEND_DOMAIN =  "http://localhost:3000"
+const BACKEND_DOMAIN =  "http://localhost:3000";
 
 const loginSignup = (apiUrl, username, password) => {
     const user = {

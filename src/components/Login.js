@@ -25,13 +25,13 @@ export const Login = ({ loginError, signin }) => {
     return (
         <form onSubmit={handleSubmit}>
             <fieldset>
-                <legend className="text-center">Have an account?</legend>
+                <legend className="text-center">Log In</legend>
                 <div className="form-group row"></div>
                 
                 <div className="form-group">
                     <input
                       type="text"
-                      className={`form-control radius-5px`}
+      
                       id="usernameInput"
                       placeholder="Username"
                       onChange={handleUsernameChange}
@@ -42,14 +42,14 @@ export const Login = ({ loginError, signin }) => {
                 <div className="form-group">
                     <input
                       type="password" 
-                      className={`form-control radius-5px`}
+                   
                       id="passwordInput" 
                       placeholder="Password"
                       onChange={handlePasswordChange}
                       value={password}
                     ></input>
                 </div>
-                <button type="submit" className="btn btn-info radius-5px btn-block">Log in</button>
+                <button type="submit" >Log in</button>
             </fieldset>
         </form>
     )

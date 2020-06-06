@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux'; 
+import { getQuestions } from '../actions/questionAction'
 
 
 
+const AskMeAnything = ({ getQuestions }) => {
 
-export default class AskMeAnything extends React.Component{
-
-
-    render(){
+    useEffect(() => {
+        getQuestions();
+    }, [])
+ 
         return(
             <div>
                 Questions here
                 <form>
                     <input></input>
                 </form>
+            
             </div>
         )
-    };
+
 
 };
+
+const mapStateToProps = (store) => {
+    return {questions: store.questions}
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getQuestions: () => getQuestions().then(dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AskMeAnything)
