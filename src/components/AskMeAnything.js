@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card'
 
 const AskMeAnything = ({ questions,getQuestions }) => {
     
+  
 
     useEffect(() => {
         getQuestions();
@@ -38,6 +39,9 @@ const AskMeAnything = ({ questions,getQuestions }) => {
             <div>
                 Questions here
                 <form>
+                    <label>Ask a question</label>
+                    <input></input>
+                    <label>Context</label>
                     <input></input>
                 </form>
                {renderQuestions()}

@@ -25,11 +25,11 @@ const Navbar = ({logout}) => {
                 style={link}
                 >Ask Me Anything </NavLink>
 
-                <NavLink
+                {/* <NavLink
                 to="Questions"
                 exact
                 style={link}
-                >Questions </NavLink>
+                >Questions </NavLink> */}
           
             {!localStorage.getItem("user") ?  <NavLink
                 to="Login"

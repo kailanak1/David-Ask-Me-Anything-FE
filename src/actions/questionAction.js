@@ -28,10 +28,27 @@ export const getQuestions = () => {
         });
 }
 
-// export const addQuestion = () = {
-//     return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
-//         method: "POST",
-//         headers: headers()
-//     }).then(res => res.json())
-// }
+export const addQuestion = (question_title, question_context) => {
+    let question = {
+        question_title: question_title, 
+        question_context: question_context
+    }
+    return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
+        method: "POST",
+        headers: headers(), 
+        body: JSON.stringify(question)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error){
+            return {
+                type: "ADD_QUESTION_ERROR", 
+                error: res.error
+            };
+        }
+        return {
+            type: "ADD_QUESTION", 
+            payload: res
+        }
+    })
+}
 
