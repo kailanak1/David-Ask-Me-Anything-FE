@@ -33,6 +33,7 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
 
 
     const renderQuestions = () => {
+        console.log(questions)
         if(questions.length !== 0){
             return questions.questions.map(question => {
                 return (
