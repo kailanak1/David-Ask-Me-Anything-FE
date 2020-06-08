@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
 import { getQuestions } from '../actions/questionAction'
+import Card from 'react-bootstrap/Card'
 
 
 
 const AskMeAnything = ({ getQuestions }) => {
 
+    
     useEffect(() => {
         getQuestions();
     }, [])
@@ -16,6 +18,8 @@ const AskMeAnything = ({ getQuestions }) => {
                 <form>
                     <input></input>
                 </form>
+
+                
             
             </div>
         )
