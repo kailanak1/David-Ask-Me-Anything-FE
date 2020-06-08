@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from 'react-bootstrap/Card';
 
-import { getQuestions } from '../actions/questions';
+import { getQuestions } from '../actions/questionAction';
 
 class Questions extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
-      if (nextProps.questions.length != this.props.questions.length) {
+      if (nextProps.questions.length !== this.props.questions.length) {
         return true
       } else {
         return false
@@ -16,7 +16,7 @@ class Questions extends Component {
 
   render() {
     const renderQuestions = this.props.questions.map(question => 
-      <Card key={question.id}>
+      <Card key={question.id} style={{ width: '18rem' }}>
         <Card.Header></Card.Header>
         <Card.Title>
           <h4>{question.title}</h4>

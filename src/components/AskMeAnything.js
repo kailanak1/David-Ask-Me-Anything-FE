@@ -5,12 +5,17 @@ import Card from 'react-bootstrap/Card'
 
 
 
-const AskMeAnything = ({ getQuestions }) => {
-
+const AskMeAnything = ({ questions,getQuestions }) => {
     
+
     useEffect(() => {
         getQuestions();
     }, [])
+
+
+console.log(questions)
+  
+ 
  
         return(
             <div>
@@ -18,9 +23,7 @@ const AskMeAnything = ({ getQuestions }) => {
                 <form>
                     <input></input>
                 </form>
-
-                
-            
+               
             </div>
         )
 

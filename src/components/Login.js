@@ -18,7 +18,7 @@ export const Login = ({ loginError, signin }) => {
     const handleSubmit = e => {
       e.preventDefault();
       e.stopPropagation();
-      console.log(username, password)
+     
       signin(username, password);
     }
 

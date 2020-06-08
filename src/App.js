@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import AskMeAnything from './components/AskMeAnything';
 import About from './components/About';
 import Login from './components/Login'
+import Questions from './containers/Questions';
 
 import './App.css';
 
