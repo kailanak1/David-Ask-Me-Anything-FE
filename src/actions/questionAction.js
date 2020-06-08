@@ -28,3 +28,10 @@ export const getQuestions = () => {
         });
 }
 
+// export const addQuestion = () = {
+//     return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
+//         method: "POST",
+//         headers: headers()
+//     }).then(res => res.json())
+// }
+

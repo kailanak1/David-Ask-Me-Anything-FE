@@ -4,7 +4,7 @@ const loginSignup = (apiUrl, username, password) => {
     const user = {
         user: {
             username,
-            password
+            password 
         }
     }
     return fetch(apiUrl, {

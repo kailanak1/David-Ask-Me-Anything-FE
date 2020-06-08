@@ -11,7 +11,7 @@ const AskMeAnything = ({ questions,getQuestions }) => {
     useEffect(() => {
         getQuestions();
     }, [])
-    console.log(questions)
+
 
     const renderQuestions = () => {
         if(questions.length !== 0){
@@ -28,14 +28,12 @@ const AskMeAnything = ({ questions,getQuestions }) => {
                   </Card>
                 )
             })
+        } else {
+           return  <h3>No questions yet. Try asking one.</h3>
         }
        
     }
 
-    
-  
- 
- 
         return(
             <div>
                 Questions here
