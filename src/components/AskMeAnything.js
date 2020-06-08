@@ -11,9 +11,28 @@ const AskMeAnything = ({ questions,getQuestions }) => {
     useEffect(() => {
         getQuestions();
     }, [])
+    console.log(questions)
 
+    const renderQuestions = () => {
+        if(questions.length !== 0){
+            return questions.questions.map(question => {
+                return (
+                    <Card key={question.id} >
+                        <Card.Header></Card.Header>
+                        <Card.Title>
+                        <h4>{question.title}</h4>
+                        </Card.Title>
+                        <Card.Body>
+                        {question.context}
+                        </Card.Body>
+                  </Card>
+                )
+            })
+        }
+       
+    }
 
-console.log(questions)
+    
   
  
  
@@ -23,7 +42,7 @@ console.log(questions)
                 <form>
                     <input></input>
                 </form>
-               
+               {renderQuestions()}
             </div>
         )
 
