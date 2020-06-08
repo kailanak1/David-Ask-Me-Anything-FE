@@ -1,17 +1,33 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
-import { getQuestions } from '../actions/questionAction'
-import Card from 'react-bootstrap/Card'
+import { getQuestions } from '../actions/questionAction';
+import { addQuestion } from '../actions/questionAction';
+import Card from 'react-bootstrap/Card';
 
 
 
-const AskMeAnything = ({ questions,getQuestions }) => {
+const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
     
   
 
     useEffect(() => {
         getQuestions();
     }, [])
+
+    const [title, setTitle] = useState('')
+    const [context, setContext] = useState('')
+
+    const handleTitleChange = e => {
+        setTitle(e.target.value)
+    }
+
+    const handleContextChange = e => {
+        setContext(e.target.value)
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+    }
 
 
     const renderQuestions = () => {
@@ -57,7 +73,8 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getQuestions: () => getQuestions().then(dispatch)
+        getQuestions: () => getQuestions().then(dispatch),
+        addQuestion: (title, context) => addQuestion(title, context).then(dispatch)
     }
 }
 
