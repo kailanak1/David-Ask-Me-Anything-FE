@@ -30,9 +30,12 @@ export const getQuestions = () => {
 
 export const addQuestion = (question_title, question_context) => {
     let question = {
-        question_title: question_title, 
-        question_context: question_context
+        question:{
+            title: question_title, 
+            context: question_context
+        }
     }
+    console.log(question)
     return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
         method: "POST",
         headers: headers(), 

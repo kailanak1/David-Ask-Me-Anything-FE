@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'; 
 import { getQuestions } from '../actions/questionAction';
 import { addQuestion } from '../actions/questionAction';
 import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
 
 
 
 const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
     
-  
 
     useEffect(() => {
         getQuestions();
+     
     }, [])
 
     const [title, setTitle] = useState('')
@@ -26,7 +27,8 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
     }
 
     const handleSubmit = e => {
-        e.preventDefault()
+     
+        addQuestion(title, context)
     }
 
 
@@ -34,7 +36,7 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
         if(questions.length !== 0){
             return questions.questions.map(question => {
                 return (
-                    <Card key={question.id} >
+                    <Card key={question.id} id={question.id} >
                         <Card.Header></Card.Header>
                         <Card.Title>
                         <h4>{question.title}</h4>
@@ -53,13 +55,30 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
 
         return(
             <div>
-                Questions here
-                <form>
-                    <label>Ask a question</label>
-                    <input></input>
-                    <label>Context</label>
-                    <input></input>
-                </form>
+             <h2>Ask Away</h2>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Label>Ask a question</Form.Label>
+                    <br />
+                    <input
+                    type="text"
+                    placeholder="Write a question"
+                    onChange={handleTitleChange}
+                    value={title}
+                    ></input>
+                    <br />
+                    <Form.Label>Question context</Form.Label>
+                    <br />
+                    <input
+                    type="textarea"
+                    placeholder="Give me some background info"
+                    onChange={handleContextChange}
+                    value={context}
+                    ></input>
+                    <br />
+                    <input type="submit" className="btn btn-secondary"></input>
+                    <br />
+                 
+                </Form>
                {renderQuestions()}
             </div>
         )
