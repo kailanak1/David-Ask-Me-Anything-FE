@@ -17,6 +17,7 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
 
     const [title, setTitle] = useState('')
     const [context, setContext] = useState('')
+    const [points, setPoints] = useState('')
 
     const handleTitleChange = e => {
         setTitle(e.target.value)
@@ -27,9 +28,10 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
     }
 
     const handleSubmit = e => {
-     
         addQuestion(title, context)
     }
+
+    
 
 
     const renderQuestions = () => {
@@ -44,6 +46,14 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
                         </Card.Title>
                         <Card.Body>
                         {question.context}
+                       <footer>
+                           <Form>
+                       <button>+</button>
+                        <button>-</button>
+                        {question.points}
+                        <button>Save Changes</button>
+                        </Form>
+                       </footer>
                         </Card.Body>
                   </Card>
                 )

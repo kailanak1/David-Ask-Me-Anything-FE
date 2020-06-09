@@ -9,6 +9,8 @@ const questionReducer = (state = QUESTION_INITIAL_STATE, action) => {
             return {...state, question: action.payload}
         case 'DELETE_QUESTION': 
             return state.filter((question) => question.id !== question.id)
+        case 'UPDATE_QUESTION': 
+            return {...state, question: action.payload}
         default:
             return state
     }

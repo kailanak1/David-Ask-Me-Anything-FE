@@ -32,10 +32,10 @@ export const addQuestion = (question_title, question_context) => {
     let question = {
         question:{
             title: question_title, 
-            context: question_context
+            context: question_context,
+            points: 0
         }
     }
-    console.log(question)
     return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
         method: "POST",
         headers: headers(), 
@@ -50,6 +50,35 @@ export const addQuestion = (question_title, question_context) => {
         }
         return {
             type: "ADD_QUESTION", 
+            payload: res
+        }
+    })
+}
+
+
+export const updateQuestion = (question_id, question_title, question_context, question_points) => {
+    let question = {
+        question:{
+            id: question_id,
+            title: question_title, 
+            context: question_context,
+            points: question_points
+        }
+    }
+    return fetch(`${BACKEND_DOMAIN}/api/v1/questions/${question_id}`, {
+        method: "PATCH",
+        headers: headers(), 
+        body: JSON.stringify(question)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error){
+            return {
+                type: "UPDATE_QUESTION_ERROR", 
+                error: res.error
+            };
+        }
+        return {
+            type: "UPDATE_QUESTION", 
             payload: res
         }
     })
