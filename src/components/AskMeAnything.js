@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'; 
 import { getQuestions } from '../actions/questionAction';
 import { addQuestion } from '../actions/questionAction';
+import { updateQuestion } from '../actions/questionAction';
+import { deleteQuestion } from '../actions/questionAction';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
 
 
-const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
+const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, deleteQuestion }) => {
     
 
     useEffect(() => {
@@ -31,14 +33,37 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
         addQuestion(title, context)
     }
 
+    const handlePointsChange = (e, points) => {
+        setPoints(points, e.target.value)
+    }
+
+    const handlePointsSubmit = (e, id) => {
+        updateQuestion(points, id)
+    }
     
+    const handleDeleteSubmit = (e, id) => {
+        deleteQuestion(id)
+    }
+
+    
+    // const renderAnswers = () => {
+    //     if(questions.length !==0){
+    //         return questions.questions.answers.map(answer => {
+    //             return (
+    //                 <Card key = 
+    //             )
+    //         })
+    //     }
+    // }
 
 
     const renderQuestions = () => {
         console.log(questions)
+       
         if(questions.length !== 0){
             return questions.questions.map(question => {
                 return (
+           
                     <Card key={question.id} id={question.id} >
                         <Card.Header></Card.Header>
                         <Card.Title>
@@ -46,14 +71,23 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
                         </Card.Title>
                         <Card.Body>
                         {question.context}
-                       <footer>
-                           <Form>
-                       <button>+</button>
-                        <button>-</button>
-                        {question.points}
+                        <footer>
+                        {question.answers.map(answer =>{
+                            return (answer.content)
+                        })}
+                      
+                        {/* <Form onSubmit={handlePointsSubmit}>
+                            <input
+                            onChange={handlePointsChange}
+                            value={question.points}
+                            />
                         <button>Save Changes</button>
                         </Form>
+                        <Form onSubmit={handleDeleteSubmit}>
+                            <button type="submit">Delete</button>
+                        </Form> */}
                        </footer>
+                      
                         </Card.Body>
                   </Card>
                 )
@@ -90,6 +124,7 @@ const AskMeAnything = ({ questions,getQuestions, addQuestion }) => {
                     <br />
                  
                 </Form>
+               
                {renderQuestions()}
             </div>
         )
@@ -104,7 +139,9 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getQuestions: () => getQuestions().then(dispatch),
-        addQuestion: (title, context) => addQuestion(title, context).then(dispatch)
+        addQuestion: (title, context) => addQuestion(title, context).then(dispatch),
+        updateQuestion: (points, id) => updateQuestion(points, id).then(dispatch), 
+        deleteQuestion: (id) => deleteQuestion(id).then(dispatch)
     }
 }
 

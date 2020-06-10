@@ -33,6 +33,7 @@ export const addQuestion = (question_title, question_context) => {
         question:{
             title: question_title, 
             context: question_context,
+            coin: "uuid",
             points: 0
         }
     }
@@ -84,3 +85,11 @@ export const updateQuestion = (question_id, question_title, question_context, qu
     })
 }
 
+export const deleteQuestion = (question_id) => {
+    return fetch(`${BACKEND_DOMAIN}/api/v1/questions/${question_id}`,{
+        method: "DELETE"
+    }
+    
+
+    )
+}
