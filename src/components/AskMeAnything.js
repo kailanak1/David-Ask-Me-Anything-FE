@@ -36,6 +36,8 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     const handleSubmit = e => {
         e.preventDefault()
         addQuestion(title, context)
+        setContext("")
+        setTitle("")
     }
 
     const handlePointsChange = (e, points) => {
@@ -47,29 +49,11 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     }
     
     const handleDeleteSubmit = (id) => {
-        console.log("testing delete")
-        console.log(id)
         deleteQuestion(id)
     }
     
-    // const handleAnswerChange = (e) => {
-    //     setAnswer(e.target.value)
-    // }
-
-    // const handleAnswerSubmit = (answer, id) => {
-    //     answerQuestion(answer, id)
-    // }
-
     
-    // const renderAnswers = () => {
-    //     if(questions.length !==0){
-    //         return questions.questions.answers.map(answer => {
-    //             return (
-    //                 <Card key = 
-    //             )
-    //         })
-    //     }
-    // }
+
 
 
     const renderQuestions = () => {
@@ -85,16 +69,19 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
                         <Card.Body>
                         {question.context}
                         <br></br>
+                        <div className="answer">
                          {question.answers.map(answer =>{
                                 return (answer.content)
                             })}
                             {!!localStorage.getItem("user") ?
                                 <div>
                                      <AnswerForm question_id={question.id}/>
+                                     <br/>
                                     <button onClick={() => handleDeleteSubmit(question.id)}>Delete this question</button>
                                 </div>
                    
                      : null}
+                        </div>
                       
                         </Card.Body>
                   </Card>

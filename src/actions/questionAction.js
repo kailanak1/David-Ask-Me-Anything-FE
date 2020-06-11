@@ -86,8 +86,6 @@ export const updateQuestion = (question_id, question_title, question_context, qu
 }
 
 export const deleteQuestion = (question_id) => {
-    console.log("where is this failing?")
-    console.log(question_id)
     return fetch(`${BACKEND_DOMAIN}/api/v1/questions/${question_id}`,{
         method: "DELETE", 
         headers: headers()

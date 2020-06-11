@@ -1,3 +1,16 @@
+## David's Personal Website 
+
+This is a personal website for David. 
+
+## Technologies Used
+- React
+- Redux 
+
+## Status 
+Under Construction
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
