@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'; 
+
 import { getQuestions } from '../actions/questionAction';
 import { addQuestion } from '../actions/questionAction';
 import { updateQuestion } from '../actions/questionAction';
@@ -45,7 +46,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
         updateQuestion(points, id)
     }
     
-    const handleDeleteSubmit = (e, id) => {
+    const handleDeleteSubmit = (id) => {
         console.log("testing delete")
         console.log(id)
         deleteQuestion(id)
@@ -90,7 +91,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
                             {!!localStorage.getItem("user") ?
                                 <div>
                                      <AnswerForm question_id={question.id}/>
-                                    <button onClick={(id) =>handleDeleteSubmit(id)}>Delete this question</button>
+                                    <button onClick={() => handleDeleteSubmit(question.id)}>Delete this question</button>
                                 </div>
                    
                      : null}

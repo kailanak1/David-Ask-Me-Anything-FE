@@ -3,7 +3,6 @@ const QUESTION_INITIAL_STATE = []
 const questionReducer = (state = QUESTION_INITIAL_STATE, action) => {
     switch(action.type){
         case 'GET_QUESTIONS': 
-            // return {...state, questions: action.payload}
             return action.payload.map(item => item)
         case 'ANSWER_QUESTION':
             return state.map(q => q.id === action.payload.question_id
