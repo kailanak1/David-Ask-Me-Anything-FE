@@ -9,12 +9,10 @@ const AnswerForm = ({answerQuestion, question_id}) => {
     const [answer, setAnswer] = useState('');
 
     const handleAnswerChange = (e) => {
-        console.log(e.target.value)
         setAnswer(e.target.value)
     };
 
     const handleAnswerSubmit = (e) => {
-        console.log(answer, question_id)
         e.preventDefault(e)
         answerQuestion(answer, question_id)
         setAnswer("")

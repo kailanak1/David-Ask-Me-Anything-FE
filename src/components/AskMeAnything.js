@@ -22,7 +22,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     const [title, setTitle] = useState('')
     const [context, setContext] = useState('')
     const [points, setPoints] = useState('')
-    //const [answer, setAnswer] = useState('')
+
 
     const handleTitleChange = e => {
         setTitle(e.target.value)
@@ -46,6 +46,8 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     }
     
     const handleDeleteSubmit = (e, id) => {
+        console.log("testing delete")
+        console.log(id)
         deleteQuestion(id)
     }
     
@@ -86,18 +88,10 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
                                 return (answer.content)
                             })}
                             {!!localStorage.getItem("user") ?
-                                <AnswerForm question_id={question.id}/>
-                            // <Form onSubmit={handleAnswerSubmit}>
-                            //     <input
-                            //         id={question.id}
-                            //         placeholder="answer here"
-                            //         name={question.id}
-                            //         value={`answer_${question.id}`}
-                            //         onChange={ (e) => handleAnswerChange(e)}
-                            //     />
-                            //     <input type="submit"></input>
-                            
-                            // </Form>
+                                <div>
+                                     <AnswerForm question_id={question.id}/>
+                                    <button onClick={(id) =>handleDeleteSubmit(id)}>Delete this question</button>
+                                </div>
                    
                      : null}
                       
