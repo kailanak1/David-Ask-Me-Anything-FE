@@ -4,8 +4,10 @@ import { getQuestions } from '../actions/questionAction';
 import { addQuestion } from '../actions/questionAction';
 import { updateQuestion } from '../actions/questionAction';
 import { deleteQuestion } from '../actions/questionAction';
+
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import AnswerForm from './AnswerForm'
 
 
 
@@ -20,6 +22,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     const [title, setTitle] = useState('')
     const [context, setContext] = useState('')
     const [points, setPoints] = useState('')
+    //const [answer, setAnswer] = useState('')
 
     const handleTitleChange = e => {
         setTitle(e.target.value)
@@ -30,6 +33,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     }
 
     const handleSubmit = e => {
+        e.preventDefault()
         addQuestion(title, context)
     }
 
@@ -44,6 +48,14 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     const handleDeleteSubmit = (e, id) => {
         deleteQuestion(id)
     }
+    
+    // const handleAnswerChange = (e) => {
+    //     setAnswer(e.target.value)
+    // }
+
+    // const handleAnswerSubmit = (answer, id) => {
+    //     answerQuestion(answer, id)
+    // }
 
     
     // const renderAnswers = () => {
@@ -58,10 +70,8 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
 
 
     const renderQuestions = () => {
-        console.log(questions)
-       
         if(questions.length !== 0){
-            return questions.questions.map(question => {
+            return questions.map(question => {
                 return (
            
                     <Card key={question.id} id={question.id} >
@@ -71,22 +81,25 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
                         </Card.Title>
                         <Card.Body>
                         {question.context}
-                        <footer>
-                        {question.answers.map(answer =>{
-                            return (answer.content)
-                        })}
-                      
-                        {/* <Form onSubmit={handlePointsSubmit}>
-                            <input
-                            onChange={handlePointsChange}
-                            value={question.points}
-                            />
-                        <button>Save Changes</button>
-                        </Form>
-                        <Form onSubmit={handleDeleteSubmit}>
-                            <button type="submit">Delete</button>
-                        </Form> */}
-                       </footer>
+                        <br></br>
+                         {question.answers.map(answer =>{
+                                return (answer.content)
+                            })}
+                            {!!localStorage.getItem("user") ?
+                                <AnswerForm question_id={question.id}/>
+                            // <Form onSubmit={handleAnswerSubmit}>
+                            //     <input
+                            //         id={question.id}
+                            //         placeholder="answer here"
+                            //         name={question.id}
+                            //         value={`answer_${question.id}`}
+                            //         onChange={ (e) => handleAnswerChange(e)}
+                            //     />
+                            //     <input type="submit"></input>
+                            
+                            // </Form>
+                   
+                     : null}
                       
                         </Card.Body>
                   </Card>
