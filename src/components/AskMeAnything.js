@@ -9,6 +9,8 @@ import { deleteQuestion } from '../actions/questionAction';
 
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 import AnswerForm from './AnswerForm';
 import PointsForm from './PointsForm'
@@ -26,6 +28,15 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     const [title, setTitle] = useState('')
     const [context, setContext] = useState('')
     const [points, setPoints] = useState('')
+    const [show, setShow] = useState(false)
+
+    const handleClose = () => {
+        setShow(false)
+    }
+
+    const handleShow = () => {
+        setShow(true)
+    }
    
 
 
@@ -44,6 +55,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
         addQuestion(title, context, coin)
         setContext("")
         setTitle("")
+        handleShow()
     }
 
     const handlePointsChange = (e, points) => {
@@ -100,6 +112,14 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
 
         return(
             <div>
+                <Modal show ={show} onHide={handleClose}>
+                <Modal.Body>
+                    <h1>Code: </h1>
+                    <p>Write this code down to unlock rewards if I like your question. Check back later!</p>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                </Modal.Body>
+                </Modal>
+
              <h2>Ask Away</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Label>Ask a question</Form.Label>
