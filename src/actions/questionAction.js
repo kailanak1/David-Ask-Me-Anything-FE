@@ -32,6 +32,7 @@ export const getQuestions = () => {
 }
 
 export const addQuestion = (question_title, question_context, question_coin) => {
+  
     let question = {
         question:{
             title: question_title, 
@@ -40,7 +41,6 @@ export const addQuestion = (question_title, question_context, question_coin) => 
             points: 0
         }
     }
-    console.log(question)
     return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
         method: "POST",
         headers: headers(), 

@@ -13,7 +13,6 @@ const PointsForm = ({updateQuestion, question_id}) => {
     };
 
     const handlePointsSubmit = (e) => {
-        console.log("got here")
         e.preventDefault()
         updateQuestion(question_id, points)
         setPoints("")
@@ -22,9 +21,8 @@ const PointsForm = ({updateQuestion, question_id}) => {
     return (
         <Form onSubmit={handlePointsSubmit}>
         <input
-           
             placeholder="points here"
-           
+            type="number"
             value={points}
             onChange={ (e) => handlePointsChange(e)}
         />

@@ -24,7 +24,7 @@ const QuestionList = ({questions, getQuestions, deleteQuestion}) => {
     if(questions.length !== 0 && questions.length !== undefined){
         return questions.map(question => {
             return (
-                <Card key={question.id} id={question.id} >
+                <Card key={question.coin}>
                     <Card.Header></Card.Header>
                     <Card.Title>
                     <h4>{question.title}</h4>

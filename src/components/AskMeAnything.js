@@ -4,7 +4,6 @@ import cuid from 'cuid';
 
 import { addQuestion } from '../actions/questionAction';
 
-
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -42,19 +41,19 @@ const AskMeAnything = ({ addQuestion }) => {
         e.preventDefault()
         let coin = cuid()
         addQuestion(title, context, coin)
-       
         setContext("")
         setTitle("")
         handleShow()
     }
 
+ 
 
         return(
             <div>
                 <Modal show ={show} onHide={handleClose}>
                 <Modal.Body>
-               
-                    <p>Write this code down to unlock rewards if I like your question. Check back later!</p>
+                    <h1>Code: {}</h1>
+                    <p>Write this code down to unlock rewards. Check back later see how many point it earns!</p>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
                 </Modal.Body>
                 </Modal>
