@@ -57,12 +57,11 @@ export const addQuestion = (question_title, question_context) => {
 }
 
 
-export const updateQuestion = (question_id, question_title, question_context, question_points) => {
+export const updateQuestion = (question_id, question_points) => {
+    console.log("got to update")
     let question = {
         question:{
             id: question_id,
-            title: question_title, 
-            context: question_context,
             points: question_points
         }
     }

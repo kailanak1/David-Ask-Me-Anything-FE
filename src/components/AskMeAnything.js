@@ -8,7 +8,9 @@ import { deleteQuestion } from '../actions/questionAction';
 
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import AnswerForm from './AnswerForm'
+
+import AnswerForm from './AnswerForm';
+import PointsForm from './PointsForm'
 
 
 
@@ -52,12 +54,9 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
         deleteQuestion(id)
     }
     
-    
-
-
 
     const renderQuestions = () => {
-        if(questions.length !== 0){
+        if(questions.length !== 0 && questions.length !== undefined){
             return questions.map(question => {
                 return (
            
@@ -68,6 +67,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
                         </Card.Title>
                         <Card.Body>
                         {question.context}
+                        {question.points}
                         <br></br>
                         <div className="answer">
                          {question.answers.map(answer =>{
@@ -76,6 +76,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
                             {!!localStorage.getItem("user") ?
                                 <div>
                                      <AnswerForm question_id={question.id}/>
+                                     <PointsForm question_id={question.id} />
                                      <br/>
                                     <button onClick={() => handleDeleteSubmit(question.id)}>Delete this question</button>
                                 </div>
