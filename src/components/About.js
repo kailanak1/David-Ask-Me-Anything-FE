@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Figure from 'react-bootstrap/Figure';
 
 export default class About extends React.Component{
+
+  
     render(){
         return(
           

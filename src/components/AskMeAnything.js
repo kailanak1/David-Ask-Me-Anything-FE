@@ -39,7 +39,6 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     }
    
 
-
     const handleTitleChange = e => {
         setTitle(e.target.value)
     }
@@ -69,13 +68,13 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     const handleDeleteSubmit = (id) => {
         deleteQuestion(id)
     }
+
     
 
     const renderQuestions = () => {
         if(questions.length !== 0 && questions.length !== undefined){
             return questions.map(question => {
                 return (
-           
                     <Card key={question.id} id={question.id} >
                         <Card.Header></Card.Header>
                         <Card.Title>
