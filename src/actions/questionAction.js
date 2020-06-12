@@ -1,4 +1,7 @@
+
+
 const BACKEND_DOMAIN =  "http://localhost:3000";
+
 
 let token = () => localStorage.getItem("token")
 
@@ -28,15 +31,16 @@ export const getQuestions = () => {
         });
 }
 
-export const addQuestion = (question_title, question_context) => {
+export const addQuestion = (question_title, question_context, question_coin) => {
     let question = {
         question:{
             title: question_title, 
             context: question_context,
-            coin: "uuid",
+            coin: question_coin,
             points: 0
         }
     }
+    console.log(question)
     return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
         method: "POST",
         headers: headers(), 
@@ -58,7 +62,6 @@ export const addQuestion = (question_title, question_context) => {
 
 
 export const updateQuestion = (question_id, question_points) => {
-    console.log("got to update")
     let question = {
         question:{
             id: question_id,

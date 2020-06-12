@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'; 
+import cuid from 'cuid';
 
 import { getQuestions } from '../actions/questionAction';
 import { addQuestion } from '../actions/questionAction';
@@ -25,6 +26,7 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     const [title, setTitle] = useState('')
     const [context, setContext] = useState('')
     const [points, setPoints] = useState('')
+   
 
 
     const handleTitleChange = e => {
@@ -34,10 +36,12 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
     const handleContextChange = e => {
         setContext(e.target.value)
     }
+    
 
     const handleSubmit = e => {
         e.preventDefault()
-        addQuestion(title, context)
+        let coin = cuid()
+        addQuestion(title, context, coin)
         setContext("")
         setTitle("")
     }
@@ -135,7 +139,7 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getQuestions: () => getQuestions().then(dispatch),
-        addQuestion: (title, context) => addQuestion(title, context).then(dispatch),
+        addQuestion: (title, context, coin) => addQuestion(title, context, coin).then(dispatch),
         updateQuestion: (points, id) => updateQuestion(points, id).then(dispatch), 
         deleteQuestion: (id) => deleteQuestion(id).then(dispatch)
     }
