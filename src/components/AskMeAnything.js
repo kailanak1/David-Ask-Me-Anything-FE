@@ -2,32 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'; 
 import cuid from 'cuid';
 
-import { getQuestions } from '../actions/questionAction';
 import { addQuestion } from '../actions/questionAction';
-import { updateQuestion } from '../actions/questionAction';
-import { deleteQuestion } from '../actions/questionAction';
 
-import Card from 'react-bootstrap/Card';
+
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import AnswerForm from './AnswerForm';
-import PointsForm from './PointsForm'
+import QuestionList from './QuestionList';
 
 
 
-const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, deleteQuestion }) => {
+const AskMeAnything = ({ addQuestion }) => {
     
-
-    useEffect(() => {
-        getQuestions();
-     
-    }, [])
-
+    
     const [title, setTitle] = useState('')
     const [context, setContext] = useState('')
-    const [points, setPoints] = useState('')
     const [show, setShow] = useState(false)
 
     const handleClose = () => {
@@ -52,68 +42,18 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
         e.preventDefault()
         let coin = cuid()
         addQuestion(title, context, coin)
+       
         setContext("")
         setTitle("")
         handleShow()
     }
 
-    const handlePointsChange = (e, points) => {
-        setPoints(points, e.target.value)
-    }
-
-    const handlePointsSubmit = (e, id) => {
-        updateQuestion(points, id)
-    }
-    
-    const handleDeleteSubmit = (id) => {
-        deleteQuestion(id)
-    }
-
-    
-
-    const renderQuestions = () => {
-        if(questions.length !== 0 && questions.length !== undefined){
-            return questions.map(question => {
-                return (
-                    <Card key={question.id} id={question.id} >
-                        <Card.Header></Card.Header>
-                        <Card.Title>
-                        <h4>{question.title}</h4>
-                        </Card.Title>
-                        <Card.Body>
-                        {question.context}
-                        {question.points}
-                        <br></br>
-                        <div className="answer">
-                         {question.answers.map(answer =>{
-                                return (answer.content)
-                            })}
-                            {!!localStorage.getItem("user") ?
-                                <div>
-                                     <AnswerForm question_id={question.id}/>
-                                     <PointsForm question_id={question.id} />
-                                     <br/>
-                                    <button onClick={() => handleDeleteSubmit(question.id)}>Delete this question</button>
-                                </div>
-                   
-                     : null}
-                        </div>
-                      
-                        </Card.Body>
-                  </Card>
-                )
-            })
-        } else {
-           return  <h3>No questions yet. Try asking one.</h3>
-        }
-       
-    }
 
         return(
             <div>
                 <Modal show ={show} onHide={handleClose}>
                 <Modal.Body>
-                    <h1>Code: </h1>
+               
                     <p>Write this code down to unlock rewards if I like your question. Check back later!</p>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
                 </Modal.Body>
@@ -144,24 +84,17 @@ const AskMeAnything = ({ questions, getQuestions, addQuestion, updateQuestion, d
                  
                 </Form>
                
-               {renderQuestions()}
+              <QuestionList/>
             </div>
         )
-
-
 };
 
-const mapStateToProps = (store) => {
-    return {questions: store.questions}
-}
+
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getQuestions: () => getQuestions().then(dispatch),
-        addQuestion: (title, context, coin) => addQuestion(title, context, coin).then(dispatch),
-        updateQuestion: (points, id) => updateQuestion(points, id).then(dispatch), 
-        deleteQuestion: (id) => deleteQuestion(id).then(dispatch)
+        addQuestion: (title, context, coin) => addQuestion(title, context, coin).then(dispatch)
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AskMeAnything)
+export default connect(null, mapDispatchToProps)(AskMeAnything)
