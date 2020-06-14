@@ -10,6 +10,15 @@ import Button from 'react-bootstrap/Button';
 
 import QuestionList from './QuestionList';
 
+const textareastyle = {
+    padding: "9px", 
+    boxSizing: "border-box", 
+    fontSize: "15px", 
+    minHeight: "100px",
+    minWidth: "250px", 
+    borderRadius: "10px"
+}
+
 
 
 const AskMeAnything = ({ addQuestion }) => {
@@ -18,9 +27,18 @@ const AskMeAnything = ({ addQuestion }) => {
     const [title, setTitle] = useState('')
     const [context, setContext] = useState('')
     const [show, setShow] = useState(false)
+    const [coin, setCoin] = useState('')
+
 
     const handleClose = () => {
         setShow(false)
+    }
+
+    const handleClose1 = () => {
+        setShow(false);
+        addQuestion(title, context, coin)
+        setContext("")
+        setTitle("")
     }
 
     const handleShow = () => {
@@ -39,22 +57,24 @@ const AskMeAnything = ({ addQuestion }) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        let coin = cuid()
-        addQuestion(title, context, coin)
-        setContext("")
-        setTitle("")
-        handleShow()
+        setCoin(cuid())
+        if(title.length !== 0){
+            handleShow()
+        } else {
+            window.alert("Please write something in the question field.")
+        }
+    
     }
 
  
 
         return(
             <div>
-                <Modal show ={show} onHide={handleClose}>
+                <Modal show ={show} onHide={handleClose1}>
                 <Modal.Body>
-                    <h1>Code: {}</h1>
-                    <p>Write this code down to unlock rewards. Check back later see how many point it earns!</p>
-                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                    <h1>Code: {coin}</h1>
+                    <p>Write this code down to unlock rewards. Check back later see how many points it earns!</p>
+                    <Button variant="secondary" onClick={handleClose1}>Close</Button>
                 </Modal.Body>
                 </Modal>
 
@@ -64,6 +84,7 @@ const AskMeAnything = ({ addQuestion }) => {
                     <br />
                     <input
                     type="text"
+                    style={textareastyle}
                     placeholder="Write a question"
                     onChange={handleTitleChange}
                     value={title}

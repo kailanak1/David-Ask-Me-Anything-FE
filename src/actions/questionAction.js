@@ -101,7 +101,7 @@ export const deleteQuestion = (question_id) => {
         }
         return {
             type: "DELETE_QUESTION", 
-            payload: res
+            payload: question_id
         }
     })
 }

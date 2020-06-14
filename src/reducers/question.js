@@ -10,7 +10,7 @@ const questionReducer = (state = QUESTION_INITIAL_STATE, action) => {
         case 'ADD_QUESTION':
             return [...state, action.payload]
         case 'DELETE_QUESTION': 
-            let newState = state.filter(question => question.id !== action.payload.id)
+            let newState = state.filter(question => question.id !== action.payload)
             return newState
         case 'UPDATE_QUESTION': 
            return [...state, action.payload]

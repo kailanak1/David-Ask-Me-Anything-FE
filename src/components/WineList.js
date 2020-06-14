@@ -8,12 +8,16 @@ const WineList = () => {
             <div>
                 <li>Montes Alpha</li>
                 <li>GSMs</li>
+                <li>Monesai</li>
             </div>
         )
     }
 
 
     return(
-        {list}
+        <div>{list}</div>
+        
     )
 }
+
+export default WineList
