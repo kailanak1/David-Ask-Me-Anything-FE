@@ -13,7 +13,8 @@ const questionReducer = (state = QUESTION_INITIAL_STATE, action) => {
             let newState = state.filter(question => question.id !== action.payload)
             return newState
         case 'UPDATE_QUESTION': 
-           return [...state, action.payload]
+           return state.map(q => q.id === action.payload.id
+            ? {...q, points: action.payload.points } : q)
         default:
             return state
     }
