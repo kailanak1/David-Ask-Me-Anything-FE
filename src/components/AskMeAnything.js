@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { connect } from 'react-redux'; 
 import cuid from 'cuid';
 
@@ -73,7 +73,7 @@ const AskMeAnything = ({ addQuestion }) => {
             <div>
                 <Modal show ={show} onHide={handleClose1}>
                 <Modal.Body>
-                    <h1>Code: {coin}</h1>
+                    <h4>Code: {coin}</h4>
                     <p>Write this code down to unlock rewards. Check back later see how many points it earns!</p>
                     <Button variant="secondary" onClick={handleClose1}>Close</Button>
                 </Modal.Body>

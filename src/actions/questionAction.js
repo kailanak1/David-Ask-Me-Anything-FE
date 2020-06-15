@@ -80,7 +80,6 @@ export const updateQuestion = (question_id, question_points) => {
                 error: res.error
             };
         }
-        console.log(res)
         return {
             type: "UPDATE_QUESTION", 
             payload: res

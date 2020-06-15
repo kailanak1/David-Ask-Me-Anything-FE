@@ -6,9 +6,12 @@ import {getQuestions, deleteQuestion} from '../actions/questionAction';
 import AnswerForm from './AnswerForm'; 
 import PointsForm from './PointsForm'; 
 
+
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+
+import {Link} from 'react-router-dom';
 
 const QuestionList = ({questions, getQuestions, deleteQuestion}) => {
     
@@ -34,6 +37,8 @@ const QuestionList = ({questions, getQuestions, deleteQuestion}) => {
         setShow(false)
         setId("")
     }
+
+
     
     
     const renderQuestions = () => {
@@ -48,6 +53,8 @@ const QuestionList = ({questions, getQuestions, deleteQuestion}) => {
                     <Card.Body>
                     {question.context}
                     {question.points}
+                    <br />
+                    <small> <Link to='/winelist' questions={questions}>Redeem My Points (code required)</Link> </small>
                     <br></br>
                     <div className="answer">
                      {question.answers.map(answer =>{

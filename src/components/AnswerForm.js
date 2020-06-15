@@ -13,7 +13,7 @@ const AnswerForm = ({answerQuestion, question_id}) => {
     };
 
     const handleAnswerSubmit = (e) => {
-        e.preventDefault(e)
+        e.preventDefault()
         answerQuestion(answer, question_id)
         setAnswer("")
     }

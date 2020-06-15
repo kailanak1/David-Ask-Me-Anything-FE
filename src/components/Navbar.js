@@ -25,11 +25,6 @@ const Navbar = ({logout}) => {
                 style={link}
                 >Ask Me Anything </NavLink>
 
-                {/* <NavLink
-                to="Questions"
-                exact
-                style={link}
-                >Questions </NavLink> */}
           
             {!localStorage.getItem("user") ?  <NavLink
                 to="Login"

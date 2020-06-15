@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { updateQuestion } from '../actions/questionAction';
 import { connect } from 'react-redux'; 

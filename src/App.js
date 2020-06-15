@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
 import AskMeAnything from './components/AskMeAnything';
 import About from './components/About';
-import Login from './components/Login'
+import Login from './components/Login';
+import WineList from './components/WineList';
 import Questions from './containers/Questions';
 
 import './App.css';
@@ -39,6 +40,11 @@ export default class App extends React.Component{
           exact 
           path="/Login" 
           component={Login}/>
+
+          <Route 
+          exact 
+          path="/winelist"
+          component={WineList} />
 
         </Router>
       </div>
