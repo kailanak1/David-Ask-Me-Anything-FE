@@ -49,31 +49,31 @@ const WineList = ({questions}) => {
     const validateCoin = (coin) => {
         const found = questions.find(q => q.coin === coin)
         if(found){
-            setUsedCoins(found)
-            // make array 
-            // push coin into array 
-            // check that coin has not been used yet
+            setUsedCoins(usedCoins.concat(found.coin))
+            const currentCoin = usedCoins.find(c => c === coin)
+         if(!currentCoin){
             setPoint(found.points + point)
-           
+         } else {
+             window.alert("You have already entered that code.")
+         } 
         } else {
             window.alert("That code does not exist")
         }
     }
 
 
-   
-
-
     return(
 
         <div>
             { console.log(questions)}
+            {console.log(usedCoins)}
             {renderForm()}
             <br />
             Your Points: {point}
             <br />
             {point >= 10 ? <li>Montes Alpha</li> : null}
             {point >= 20 ? <li>GSMs</li> : null}
+            {point >= 30 ? <li>Zebra Wine</li> : null}
             <Link to='/AskMeAnything'>Go Back</Link>
         </div>
         
