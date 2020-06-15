@@ -64,7 +64,6 @@ const AskMeAnything = ({ addQuestion }) => {
     
     }
 
- 
 
         return(
             <div>
@@ -81,23 +80,19 @@ const AskMeAnything = ({ addQuestion }) => {
                 <Form onSubmit={handleSubmit}>
                     <Form.Label>Ask a question</Form.Label>
                     <br />
-                    <input
-                    type="text"
-                    style={textareastyle}
+                    <Form.Control as="textarea"
                     placeholder="Write a question"
                     onChange={handleTitleChange}
                     value={title}
-                    ></input>
+                    />
                     <br />
                     <Form.Label>Question context</Form.Label>
                     <br />
-                    <input
-                    type="textarea"
-                    style={textareastyle}
+                    <Form.Control as="textarea"
                     placeholder="Give me some background info"
                     onChange={handleContextChange}
                     value={context}
-                    ></input>
+                    />
                     <br />
                     <input type="submit" className="btn btn-secondary"></input>
                     <br />

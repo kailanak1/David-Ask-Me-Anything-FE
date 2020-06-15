@@ -20,10 +20,9 @@ const AnswerForm = ({answerQuestion, question_id}) => {
 
     return (
         <Form onSubmit={handleAnswerSubmit}>
-        <input
-           
+        <Form.Control 
+            as="textarea"
             placeholder="answer here"
-           
             value={answer}
             onChange={ (e) => handleAnswerChange(e)}
         />
@@ -31,12 +30,7 @@ const AnswerForm = ({answerQuestion, question_id}) => {
     
     </Form>
     )
-
-
-
 }
-
-
 
 const mapDispatchToProps = (dispatch) => {
     return {
