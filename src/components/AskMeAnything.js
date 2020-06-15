@@ -55,7 +55,7 @@ const AskMeAnything = ({ addQuestion }) => {
     const handleSubmit = e => {
         e.preventDefault()
         setCoin(cuid())
-        if(title.length !== 0){
+        if(title.length !== 0 || title===" "){
             handleShow()
         } else {
             window.alert("Please write something in the question field.")
@@ -91,6 +91,7 @@ const AskMeAnything = ({ addQuestion }) => {
                     <br />
                     <input
                     type="textarea"
+                    style={textareastyle}
                     placeholder="Give me some background info"
                     onChange={handleContextChange}
                     value={context}

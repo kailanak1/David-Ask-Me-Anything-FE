@@ -51,14 +51,15 @@ const QuestionList = ({questions, getQuestions, deleteQuestion}) => {
                     <h4>{question.title}</h4>
                     </Card.Title>
                     <Card.Body>
-                    {question.context}
-                    {question.points}
+                    <p>{question.context}</p>
+                    <br />
+                    <p>Points:{question.points}</p>
                     <br />
                     <small> <Link to='/winelist' questions={questions}>Redeem My Points (code required)</Link> </small>
                     <br></br>
                     <div className="answer">
                      {question.answers.map(answer =>{
-                            return (answer.content)
+                            return (<p>David's Answer: {answer.content}</p>)
                         })}
                         {!!localStorage.getItem("user") ?
                             <div>

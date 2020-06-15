@@ -14,8 +14,12 @@ const PointsForm = ({updateQuestion, question_id}) => {
 
     const handlePointsSubmit = (e) => {
         e.preventDefault()
-        updateQuestion(question_id, points)
-        setPoints("")
+        if(points > 0 && points <= 1000){
+            updateQuestion(question_id, points)
+            setPoints("")
+        } else {
+            window.alert("Points must be between 0 and 1000")
+        }
     }
 
     return (
