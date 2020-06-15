@@ -8,7 +8,6 @@ import AskMeAnything from './components/AskMeAnything';
 import About from './components/About';
 import Login from './components/Login';
 import WineList from './components/WineList';
-import Questions from './containers/Questions';
 
 import './App.css';
 

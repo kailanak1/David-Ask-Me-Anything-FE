@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'; 
-
-import {getQuestions} from '../actions/questionAction';
 
 import { Form } from 'react-bootstrap';
 
@@ -14,15 +12,6 @@ const WineList = ({questions}) => {
     const [point, setPoint] = useState(0);   
     const [usedCoins, setUsedCoins] = useState([])
 
-    const revealWines = () => {
-        return(
-            <div>
-                <li>Montes Alpha</li>
-                <li>GSMs</li>
-                <li>Monesai</li>
-            </div>
-        )
-    }
 
     const handleChange = (e) => {
         setCoin(e.target.value) 
@@ -57,7 +46,7 @@ const WineList = ({questions}) => {
              window.alert("You have already entered that code.")
          } 
         } else {
-            window.alert("That code does not exist")
+            window.alert("That code does not exist.")
         }
     }
 
@@ -65,8 +54,6 @@ const WineList = ({questions}) => {
     return(
 
         <div>
-            { console.log(questions)}
-            {console.log(usedCoins)}
             {renderForm()}
             <br />
             Your Points: {point}
@@ -74,6 +61,10 @@ const WineList = ({questions}) => {
             {point >= 10 ? <li>Montes Alpha</li> : null}
             {point >= 20 ? <li>GSMs</li> : null}
             {point >= 30 ? <li>Zebra Wine</li> : null}
+            {point >= 40 ? <li>Moone Tsai</li>: null}
+            {point >= 50 ? <li>Barbed Wire</li>: null}
+            {point >= 60 ? <li>Angelica Nicole</li>: null}
+            {point >= 70 ? <li>Earthquake</li>: null}
             <Link to='/AskMeAnything'>Go Back</Link>
         </div>
         

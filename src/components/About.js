@@ -18,7 +18,7 @@ export default class About extends React.Component{
                             alt="David" />
                         </Col>
                         <Col style={{"height":"440px"}} >
-                            <div style={{"height":"220px"}}> <a href="https://www.linkedin.com/in/david-d-589521b/" target="_blank">LinkedIn</a> <a href="https://github.com/eckdd" target="_blank" >Github</a>   </div>
+                            <div style={{"height":"220px"}}> <a href="https://www.linkedin.com/in/david-d-589521b/" target="_blank" rel="noopener noreferrer">LinkedIn</a> <a href="https://github.com/eckdd" target="_blank" rel="noopener noreferrer">Github</a>   </div>
                             <div style={{"height":"220px"}}> Hi. I'm David. I enjoy photography, wine, and computers. </div>
                         </Col>
                        

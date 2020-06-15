@@ -30,7 +30,6 @@ const loginSignup = (apiUrl, username, password) => {
 }
 
 export const login = (username, password) => {
-    console.log(username, password)
     return loginSignup(`${BACKEND_DOMAIN}/api/v1/login`, username, password);
 }
 

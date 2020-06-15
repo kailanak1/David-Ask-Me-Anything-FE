@@ -31,10 +31,6 @@ const AskMeAnything = ({ addQuestion }) => {
     const [coin, setCoin] = useState('')
 
 
-    const handleClose = () => {
-        setShow(false)
-    }
-
     const handleClose1 = () => {
         setShow(false);
         addQuestion(title, context, coin)
