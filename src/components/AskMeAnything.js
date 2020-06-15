@@ -9,6 +9,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 import QuestionList from './QuestionList';
+import EmailForm from './EmailForm';
 
 
 const textareastyle = {
@@ -55,7 +56,7 @@ const AskMeAnything = ({ addQuestion }) => {
     const handleSubmit = e => {
         e.preventDefault()
         setCoin(cuid())
-        if(title.length !== 0 || title===" "){
+        if(title.length !== 0 || title!==" "){
             handleShow()
         } else {
             window.alert("Please write something in the question field.")
@@ -71,6 +72,7 @@ const AskMeAnything = ({ addQuestion }) => {
                 <Modal.Body>
                     <h4>Code: {coin}</h4>
                     <p>Write this code down to unlock rewards. Check back later see how many points it earns!</p>
+                    <EmailForm coin={coin}/>
                     <Button variant="secondary" onClick={handleClose1}>Close</Button>
                 </Modal.Body>
                 </Modal>

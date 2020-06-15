@@ -53,7 +53,7 @@ const QuestionList = ({questions, getQuestions, deleteQuestion}) => {
                     <Card.Body>
                     <p>{question.context}</p>
                     <br />
-                    <p>Points:{question.points}</p>
+                    <p>Points: {question.points}</p>
                     <br />
                     <small> <Link to='/winelist' questions={questions}>Redeem My Points (code required)</Link> </small>
                     <br></br>
