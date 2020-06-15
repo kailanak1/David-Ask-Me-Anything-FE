@@ -10,9 +10,11 @@ import { Form } from 'react-bootstrap';
 
 const WineList = ({questions}) => {
 
-    const [coin, setCoin] = useState('');
+    const [coin, setCoin] = useState("");
+    const [point, setPoint] = useState(0);   
+    const [usedCoins, setUsedCoins] = useState([])
 
-    const list = () => {
+    const revealWines = () => {
         return(
             <div>
                 <li>Montes Alpha</li>
@@ -23,16 +25,8 @@ const WineList = ({questions}) => {
     }
 
     const handleChange = (e) => {
-        setCoin(e.target.value)
-        
+        setCoin(e.target.value) 
     }
-
-    // const renderList = (points) => {
-    //     points
-    //     for(i=0; i < points; i++){
-    //         render
-    //     }
-    // }
 
     const renderForm = () => {
         return(
@@ -48,9 +42,23 @@ const WineList = ({questions}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        validateCoin(coin)
         setCoin("")
     }
 
+    const validateCoin = (coin) => {
+        const found = questions.find(q => q.coin === coin)
+        if(found){
+            setUsedCoins(found)
+            // make array 
+            // push coin into array 
+            // check that coin has not been used yet
+            setPoint(found.points + point)
+           
+        } else {
+            window.alert("That code does not exist")
+        }
+    }
 
 
    
@@ -59,10 +67,13 @@ const WineList = ({questions}) => {
     return(
 
         <div>
-                   { console.log(questions)}
+            { console.log(questions)}
             {renderForm()}
-            {list()}
             <br />
+            Your Points: {point}
+            <br />
+            {point >= 10 ? <li>Montes Alpha</li> : null}
+            {point >= 20 ? <li>GSMs</li> : null}
             <Link to='/AskMeAnything'>Go Back</Link>
         </div>
         
@@ -72,6 +83,8 @@ const WineList = ({questions}) => {
 const mapStateToProps = (store) => {
     return {questions: store.questions}
 }
+
+
 
 
 export default connect(mapStateToProps, null)(WineList)
