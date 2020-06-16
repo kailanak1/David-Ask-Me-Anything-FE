@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'; 
+import {getQuestions} from '../actions/questionAction';
 
 import { Form } from 'react-bootstrap';
 
 
 
-const WineList = ({questions}) => {
+const WineList = ({questions, getQuestions}) => {
+
+    useEffect(() => {
+        getQuestions();
+     
+    }, [])
 
     const [coin, setCoin] = useState("");
     const [point, setPoint] = useState(0);   
@@ -54,6 +60,7 @@ const WineList = ({questions}) => {
     return(
 
         <div>
+            {console.log(questions)}
             {renderForm()}
             <br />
             Your Points: {point}
@@ -75,7 +82,12 @@ const mapStateToProps = (store) => {
     return {questions: store.questions}
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getQuestions: () => getQuestions().then(dispatch)
+    }
+}
 
 
 
-export default connect(mapStateToProps, null)(WineList)
+export default connect(mapStateToProps, mapDispatchToProps)(WineList)
