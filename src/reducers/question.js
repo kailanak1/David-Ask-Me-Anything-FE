@@ -15,6 +15,16 @@ const questionReducer = (state = QUESTION_INITIAL_STATE, action) => {
         case 'UPDATE_QUESTION': 
            return state.map(q => q.id === action.payload.id
             ? {...q, points: action.payload.points } : q)
+        case 'GET_QUESTIONS_ERROR': 
+            return action.error
+        case 'ANSWER_QUESTION_ERROR': 
+            return action.error
+        case 'ADD_QUESTION_ERROR': 
+            return action.error
+        case 'DELETE_QUESTION_ERROR': 
+            return action.error
+        case 'UPDATE_QUESTION_ERROR': 
+            return action.error
         default:
             return state
     }

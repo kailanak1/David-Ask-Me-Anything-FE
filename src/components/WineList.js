@@ -60,7 +60,6 @@ const WineList = ({questions, getQuestions}) => {
     return(
 
         <div>
-            {console.log(questions)}
             {renderForm()}
             <br />
             Your Points: {point}
