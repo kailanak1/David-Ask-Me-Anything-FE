@@ -12,16 +12,6 @@ import QuestionList from './QuestionList';
 import EmailForm from './EmailForm';
 
 
-const textareastyle = {
-    padding: "9px", 
-    boxSizing: "border-box", 
-    fontSize: "15px", 
-    minHeight: "100px",
-    minWidth: "250px", 
-    borderRadius: "10px"
-}
-
-
 
 const AskMeAnything = ({ addQuestion }) => {
     

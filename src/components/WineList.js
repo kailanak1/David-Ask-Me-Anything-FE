@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'; 
-import {getQuestions} from '../actions/questionAction';
+import { getQuestions } from '../actions/questionAction';
 
 import { Form } from 'react-bootstrap';
-
 
 
 const WineList = ({questions, getQuestions}) => {
@@ -14,7 +13,7 @@ const WineList = ({questions, getQuestions}) => {
      
     }, [])
 
-    const [coin, setCoin] = useState("");
+    const [coin, setCoin] = useState([]);
     const [point, setPoint] = useState(0);   
     const [usedCoins, setUsedCoins] = useState([])
 
@@ -23,15 +22,34 @@ const WineList = ({questions, getQuestions}) => {
         setCoin(e.target.value) 
     }
 
+    const addCoins = (newCoin) => {
+        setCoin(coin.concat(newCoin))
+    }
+
+    const renderInput = () => {
+        {console.log("clicked")}
+            return (
+        
+                    <input 
+                    value={()=>addCoins(coin)}
+                    onChange={(e)=> handleChange(e)}
+                    ></input>
+             
+            )
+    }
+
+
+
     const renderForm = () => {
         return(
-        <Form onSubmit={handleSubmit}>
-            Code:<input
-            value={coin}
-            onChange= {(e)=> handleChange(e)}
-            ></input>
-            <input type="submit"></input>
-        </Form>
+            <div>
+            <Form onSubmit={handleSubmit}>
+                Code:  {renderInput()}
+                <input type="submit"></input>
+            </Form>
+            <br />
+            <button onClick={addCoins}>Add More Codes</button>
+         </div>
         )
     }
 
