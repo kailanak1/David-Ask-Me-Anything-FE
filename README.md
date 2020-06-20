@@ -72,7 +72,7 @@ Kim Kong helped me brainstorm and troubleshoot this project. Check out her [gith
 ## License 
 This project is licensed under the [GNU GPL](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-    Copyright (C) <20202>  <Kailana Kahawaii>
+    Copyright (C) <2020>  <Kailana Kahawaii>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
