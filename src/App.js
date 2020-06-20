@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //components 
@@ -8,15 +8,13 @@ import AskMeAnything from './components/AskMeAnything';
 import About from './components/About';
 import Login from './components/Login';
 import WineList from './components/WineList';
+import FourOhFour from './components/FourOhFour'; 
 
 
 import './App.css';
 
 export default class App extends React.Component{
   
-
-
-
   render(){
     return(
       <div className="App">
@@ -26,6 +24,7 @@ export default class App extends React.Component{
           <Navbar />
           </header>
 
+          <Switch>
           <Route 
           exact
           path="/" 
@@ -46,7 +45,10 @@ export default class App extends React.Component{
           path="/winelist"
           component={WineList} />
 
-       
+          <Route 
+          component={FourOhFour}/>
+
+          </Switch>
 
         </Router>
       </div>
