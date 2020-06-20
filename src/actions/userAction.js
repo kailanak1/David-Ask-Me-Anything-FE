@@ -1,4 +1,11 @@
-const BACKEND_DOMAIN =  "http://localhost:3000";
+const BACKEND_DOMAIN =  "https://david-quora-backend.herokuapp.com/api/v1";
+
+const headers = () => {
+    return {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+    }
+}
 
 const loginSignup = (apiUrl, username, password) => {
     const user = {
@@ -9,12 +16,9 @@ const loginSignup = (apiUrl, username, password) => {
     }
     return fetch(apiUrl, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-        },
+        headers: headers(),
         body: JSON.stringify(user)
-    }).then(res => res.json())
+    }).then(res =>  res.json())
     .then(res => {
         if (res.error) {
             return {
@@ -30,7 +34,7 @@ const loginSignup = (apiUrl, username, password) => {
 }
 
 export const login = (username, password) => {
-    return loginSignup(`${BACKEND_DOMAIN}/api/v1/login`, username, password);
+    return loginSignup(`${BACKEND_DOMAIN}/login`, username, password);
 }
 
 export const signup = (username, password) => {
@@ -38,10 +42,11 @@ export const signup = (username, password) => {
     const user = {
         user: {
             username,
-            password
+            password, 
+            is_admin: false
         }
     }
-    return fetch(`${BACKEND_DOMAIN}/api/v1/users`, {
+    return fetch(`${BACKEND_DOMAIN}/users`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-const BACKEND_DOMAIN =  "http://localhost:3000";
+const BACKEND_DOMAIN =  "https://david-quora-backend.herokuapp.com/api/v1";
 
 
 let token = () => localStorage.getItem("token")
@@ -13,7 +13,7 @@ const headers = () => {
 
 
 export const getQuestions = () => {
-    return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
+    return fetch(`${BACKEND_DOMAIN}/questions`, {
         method: "GET",
         headers: headers()
     }).then(res => res.json())
@@ -39,7 +39,7 @@ export const addQuestion = (question_title, question_context, question_coin) => 
             points: 0
         }
     }
-    return fetch(`${BACKEND_DOMAIN}/api/v1/questions`, {
+    return fetch(`${BACKEND_DOMAIN}/questions`, {
         method: "POST",
         headers: headers(), 
         body: JSON.stringify(question)
@@ -66,7 +66,7 @@ export const updateQuestion = (question_id, question_points) => {
             points: question_points
         }
     }
-    return fetch(`${BACKEND_DOMAIN}/api/v1/questions/${question_id}`, {
+    return fetch(`${BACKEND_DOMAIN}/questions/${question_id}`, {
         method: "PATCH",
         headers: headers(), 
         body: JSON.stringify(question)
@@ -86,7 +86,7 @@ export const updateQuestion = (question_id, question_points) => {
 }
 
 export const deleteQuestion = (question_id) => {
-    return fetch(`${BACKEND_DOMAIN}/api/v1/questions/${question_id}`,{
+    return fetch(`${BACKEND_DOMAIN}/questions/${question_id}`,{
         method: "DELETE", 
         headers: headers()
     }).then(res => res.json())
