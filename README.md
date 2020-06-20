@@ -5,6 +5,7 @@ This is a personal website for David.
 [See the live site here](https://david-quora-frontend.firebaseapp.com/).
 
 ## Technologies Used
+- Javascript
 - React
 - Redux 
 
@@ -12,21 +13,26 @@ This is a personal website for David.
 In order to fully use this project, you will need the [backend](https://github.com/kailanak1/David-ask-me-anything).
 
 Clone the project on your local machine by forking and cloning this respository. Copy the SSH link, open your terminal, and type:  
+
 ```$ git clone <SSH link>```
 
 After cloning the repository, cd into the folder.  
+
 ```$ cd david-quora-frontend```
 
 Run NPM install. 
+
 ```$ npm install```
 
 Run NPM start to run the project on your localhost port. 
+
 ```$ npm start```
 
 **Note on email functionality**
 The email feature after submitting a question will not work right out of the box. If you would like to enable it, go to [emailjs](https://www.emailjs.com/) and create a free account. Replace the keys with your Service ID and Access Token respectively in /components/EmailForm.js. 
 
 ```const service_id = "SECRET";```
+
 ```const API_KEY = "SECRET";```
 
 ## Getting Started
@@ -34,19 +40,24 @@ Create a user in your [backend](https://github.com/kailanak1/David-ask-me-any). 
 
 **Option 1:**
 Open the backend. From the terminal, navigate to the root directory. Type rails c to open your the Rails console. 
+
 ```$ rails c```
 
 In the Rails console, create a new user with username, password, and is_admin attributes. 
+
 ```$ User.create(username: "Jean-Luc", password: "Picard", is_admin: true)```
 
 Exit the console.
+
 ```$ exit``` 
 
 **Option 2:** 
 In the backend, navigate to db/seeds.rb. Create a user in the seed file underneath User.destroy_all. 
+
 ```User.create(username: "James", password: "Kirk", is_admin: true)```
 
 In your terminal, run rails db:seed. 
+
 ```$ rails db:seed```
 
 After completing either option 1 or option 2, start your rails server again ```rails s``` and go to the localhost port hosting your front end. Go to Login from the navigation bar and enter your credentials. 
