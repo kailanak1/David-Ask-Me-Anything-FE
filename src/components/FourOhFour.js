@@ -14,4 +14,4 @@ const FourOhFour = () => {
 
 }
 
-export default EmailForm
+export default FourOhFour

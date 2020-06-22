@@ -5,7 +5,6 @@ import {logout} from "../actions/userAction";
 
 const Navbar = ({logout}) => {
 
-  
     const link = {
             color: "white",
             paddingTop: "25px", 

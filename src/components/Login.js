@@ -18,12 +18,12 @@ export const Login = ({ loginError, signin }) => {
     const handleSubmit = e => {
       e.preventDefault();
       e.stopPropagation();
-     
       signin(username, password);
     }
 
     return (
         <form onSubmit={handleSubmit}>
+          <div>Only registered users can log in.</div>
             <fieldset>
                 <legend className="text-center">Log In</legend>
                 <div className="form-group row"></div>
@@ -31,7 +31,6 @@ export const Login = ({ loginError, signin }) => {
                 <div className="form-group">
                     <input
                       type="text"
-      
                       id="usernameInput"
                       placeholder="Username"
                       onChange={handleUsernameChange}
@@ -42,14 +41,13 @@ export const Login = ({ loginError, signin }) => {
                 <div className="form-group">
                     <input
                       type="password" 
-                   
                       id="passwordInput" 
                       placeholder="Password"
                       onChange={handlePasswordChange}
                       value={password}
                     ></input>
                 </div>
-                <button type="submit" >Log in</button>
+                <button type="submit">Log in</button>
             </fieldset>
         </form>
     )
