@@ -64,13 +64,15 @@ const WineList = ({questions, getQuestions}) => {
             <br />
             Your Points: {point}
             <br />
-            {point >= 10 ? <li>Montes Alpha</li> : null}
-            {point >= 20 ? <li>GSMs</li> : null}
-            {point >= 30 ? <li>Zebra Wine</li> : null}
-            {point >= 40 ? <li>Moone Tsai</li>: null}
-            {point >= 50 ? <li>Barbed Wire</li>: null}
-            {point >= 60 ? <li>Angelica Nicole</li>: null}
-            {point >= 70 ? <li>Earthquake</li>: null}
+            Redeem your points for a list of David's wine recommendations.
+            {point >= 10 ? <li><a href="https://www.monteswines.com/en/wines/montes-alpha/cabernet-sauvignon">Montes Alpha</a></li> : null}
+            {point >= 20 ? <li><a href="https://localstastingroom.com/what-is-a-gsm-wine/#:~:text=GSM%20are%20the%20initials%20for,Grenache%2C%20Syrah%2C%20and%20Mourvedre.&text=More%20syrah%2C%20and%20you%20will,use%20more%20syrah%20than%20grenache.">GSMs</a></li> : null}
+            {point >= 30 ? <li><a href="https://www.lagranja360.com/">Lagranja</a></li> : null}
+            {point >= 40 ? <li><a href="https://www.moonetsai.com/">Moone Tsai</a></li>: null}
+            {point >= 50 ? <li><a href="https://www.tfewines.com/our-brands/barbed-wire/">Barbed Wire</a></li>: null}
+            {point >= 60 ? <li><a href="https://www.alexandrianicolecellars.com/">Angelica Nicole</a></li>: null}
+            {point >= 70 ? <li><a href="https://michaeldavidwinery.com/wines/">Earthquake</a></li>: null}
+            {point >= 80 ? <li><a href="http://www.tenshenwines.com/">Tenshen</a></li>: null}
             <Link to='/AskMeAnything'>Go Back</Link>
         </div>
         

@@ -34,12 +34,7 @@ const PointsForm = ({updateQuestion, question_id}) => {
     
     </Form>
     )
-
-
-
 }
-
-
 
 const mapDispatchToProps = (dispatch) => {
     return {
