@@ -4,6 +4,8 @@ This is a personal website for David.
 
 [See the live site here](https://david-quora-frontend.firebaseapp.com/).
 
+[Read about how I set up anonymous users here](https://dev.to/kahawaiikailana/how-to-recognize-anonymous-users-in-a-react-app-2gfg).
+
 ## Technologies Used
 - Javascript
 - React
